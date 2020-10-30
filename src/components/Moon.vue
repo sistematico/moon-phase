@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ moonprops.title }}</h1>
-    <p>{{ moonprops.phase }}</p>
+    <p>{{ moonprops.phase.name }}</p>
     <ul>
       <li>Made with <a href="https://vuejs.org" target="_blank" rel="noopener">Vue</a></li>
     </ul>

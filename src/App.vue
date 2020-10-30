@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Moon Phase" src="./assets/logo.png" />
+    <img alt="Moon Phase" :src="this.moonprops.phase.img" />
     <Moon :moonprops="moonprops" />
   </div>
 </template>
 
 <script>
 import Moon from './components/Moon'
-import './scripts/moon'
 
 export default {
   name: 'App',
@@ -18,14 +17,14 @@ export default {
     return {
       moonprops: {
         title: 'Moon Phase',
-        phase: 'Loading...'
+        phase: {
+          name: '',
+          img: '/img/moon/default.svg'
+        }
       }
     }
   },
   methods: {
-    getMoon() {
-      this.moonprops.phase = this.moonPhase(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
-    },
     moonPhase(year, month, day) {
       // Source: http://jivebay.com/calculating-the-moon-phase/
       // Modified from http://www.voidware.com/moon_phase.htm
@@ -45,65 +44,83 @@ export default {
 	    jd = c + e + day - 694039.09;		//jd is total days elapsed
 	    jd = jd / 29.5305882;				//divide by the moon cycle
 	    b = parseInt(jd);						//int(jd) -> b, take integer part of jd
-	    jd -= b;							//subtract integer part to leave fractional part of original jd
-	    b = Math.round(jd * 8);				//scale fraction from 0-8 and round
+	    jd -= b;							      //subtract integer part to leave fractional part of original jd
+	    b = Math.round(jd * 8);			//scale fraction from 0-8 and round
 
 	    if (b >= 8 ) {
 		    b = 0;		//0 and 8 are the same so turn 8 into 0
-	    }
+      }
+      
+      moon.jd = jd
+      moon.b = b
 
 	    switch (b) {
 		    case 0:
 			    moon.name = 'Lua Nova';
-          moon.img = 'nova.png';
+          moon.img = '/img/moon/nova.svg';
 			  break;
 		    case 1:
-			    moon.name = 'Lua Crescente (côncava)';
-          moon.img = 'nova.png';
+          // (côncava)
+			    moon.name = 'Lua Crescente';
+          moon.img = '/img/moon/crescente_concava.svg';
 			  break;
 		    case 2:
 			    moon.name = 'Quarto Crescente';
-          moon.img = 'nova.png';
+          moon.img = '/img/moon/quarto_crescente.svg';
 			  break;
 		    case 3:
-			    moon.name = 'Lua Crescente (convexa)';
-          moon.img = 'nova.png';
+          // (convexa)
+			    moon.name = 'Lua Crescente';
+          moon.img = '/img/moon/crescente_convexa.svg';
 			  break;
 		    case 4:
 			    moon.name = 'Lua Cheia';
-          moon.img = 'nova.png';
+          moon.img = '/img/moon/cheia.svg';
 			  break;
 		    case 5:
-			    moon.name = 'Lua Minguante (convexa)';
-          moon.img = 'nova.png';
+          //  (convexa)
+			    moon.name = 'Lua Minguante';
+          moon.img = '/img/moon/minguante_convexa.svg';
 			  break;
 		    case 6:
 			    moon.name = 'Quarto Minguante';
-          moon.img = 'nova.png';
+          moon.img = '/img/moon/quarto_minguante.svg';
 			  break;
 		    case 7:
-			    moon.name = 'Lua Minguante (côncava)';
-          moon.img = 'nova.png';
+          //  (côncava)
+			    moon.name = 'Lua Minguante';
+          moon.img = '/img/moon/minguante_concava.svg';
 			  break;
 		    default:
 			    moon.name = 'Erro';
-          moon.img = 'nova.png';
-	    }    
-      return moon.name;
+          moon.img = '/img/moon/nova.svg';
+	    }   
+      return moon;
     }
   },
   mounted() {
-    this.getMoon()
+    this.moonprops.phase = this.moonPhase(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
   }
 }
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+html, body {
+  height: 100%;
+}
+
 #app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+
   font-family: Nunito, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
