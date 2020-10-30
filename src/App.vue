@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Moon Phase" :src="this.moonprops.phase.img" />
+    <img :alt="this.moonprops.phase.name" :src="this.moonprops.phase.img" />
     <Moon :moonprops="moonprops" />
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       moonprops: {
-        title: 'Moon Phase',
+        title: 'Fases da Lua',
         phase: {
           name: '',
           img: '/img/moon/default.svg'
@@ -41,18 +41,21 @@ export default {
 
 	    c = 365.25 * year;
 	    e = 30.6 * month;
-	    jd = c + e + day - 694039.09;		//jd is total days elapsed
-	    jd = jd / 29.5305882;				//divide by the moon cycle
-	    b = parseInt(jd);						//int(jd) -> b, take integer part of jd
-	    jd -= b;							      //subtract integer part to leave fractional part of original jd
-	    b = Math.round(jd * 8);			//scale fraction from 0-8 and round
+	    jd = c + e + day - 694039.09;		// jd is total days elapsed
+      jd /= 29.5305882;				        // divide by the moon cycle
 
-	    if (b >= 8 ) {
-		    b = 0;		//0 and 8 are the same so turn 8 into 0
+      
+      b = parseInt(jd);						    // int(jd) -> b, take integer part of jd
+      jd -= b;							          // subtract integer part to leave fractional part of original jd
+      
+      moon.cycle = jd
+	    b = Math.round(jd * 8);			    // scale fraction from 0-8 and round
+
+	    if (b >= 8) {
+        b = 0;		//0 and 8 are the same so turn 8 into 0
       }
       
-      moon.jd = jd
-      moon.b = b
+      //moon.cycle = parseInt(jd * 100)
 
 	    switch (b) {
 		    case 0:

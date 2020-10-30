@@ -1,11 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ moonprops.title }}</h1>
-    <p>{{ moonprops.phase.name }}</p>
+    <h3>{{ moonprops.phase.name }}</h3>
     <ul>
-      <li>Made with <a href="https://vuejs.org" target="_blank" rel="noopener">Vue</a></li>
+      <li>Feito com <a href="https://vuejs.org" target="_blank" rel="noopener">VueJS</a> por <a href="https://github.com/sistematico/moon-phase" target="_blank" rel="noopener">Lucas S. Brum</a></li>
     </ul>
-
   </div>
 </template>
 <script>
@@ -16,7 +15,7 @@ export default {
 </script>
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin: 17px 0 0;
 }
 ul {
   list-style-type: none;

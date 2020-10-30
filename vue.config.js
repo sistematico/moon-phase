@@ -4,7 +4,7 @@ module.exports = {
         config
             .plugin('html')
             .tap(args => {
-                args[0].title = "Moon Phase";
+                args[0].title = "Fases da Lua";
                 return args;
             })
     }
