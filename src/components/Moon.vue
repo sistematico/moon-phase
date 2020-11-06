@@ -3,15 +3,35 @@
     <h1>{{ moonprops.title }}</h1>
     <h3>{{ moonprops.phase.name }}</h3>
     <ul>
-      <li>Feito com <a href="https://vuejs.org" target="_blank" rel="noopener">VueJS</a> por <a href="https://github.com/sistematico/moon-phase" target="_blank" rel="noopener">Lucas S. Brum</a></li>
+      <li>
+        Feito com
+        <a href="https://vuejs.org" target="_blank" rel="noopener">VueJS</a> por
+        <a
+          href="https://github.com/sistematico/moon-phase"
+          target="_blank"
+          rel="noopener"
+          >Lucas S. Brum</a
+        >
+      </li>
     </ul>
   </div>
 </template>
 <script>
 export default {
   name: 'Moon',
-  props: [ 'moonprops' ],
-}
+  props: {
+    moonprops: {
+      type: Object,
+      default: () => ({
+        title: 'Moon Phase',
+        phase: {
+          name: 'Calculando...',
+          img: '',
+        },
+      }),
+    },
+  },
+};
 </script>
 <style scoped>
 h3 {

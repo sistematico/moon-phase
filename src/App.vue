@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img :alt="this.moonprops.phase.name" :src="this.moonprops.phase.img" />
+    <img :alt="moonprops.phase.name" :src="moonprops.phase.img" />
     <Moon :moonprops="moonprops" />
   </div>
 </template>
