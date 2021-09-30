@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" class="h-100">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moon Phase</title>
-    <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico">
     <meta property="og:title" content="Moon Phase" />
     <meta property="og:description" content="Mostra a fase da lua na data atual" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moon.lucasbrum.net" />
-    <meta property="og:image" content="/assets/img/logo.png" />
+    <meta property="og:image" content="/img/logo.png" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+    <style>
+      #app { width: 100%; height: 100%; }
+    </style>
   </head>
-  <body>
+  <body class="d-flex h-100 text-center text-white bg-dark">
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
