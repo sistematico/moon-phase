@@ -12,8 +12,8 @@ export default defineComponent({
 })
 </script>
 <template>
-    <h1>{{ phase.name }}</h1>
     <p class="lead">
-      <img :src="phase.image" class="img-fluid" :alt="phase.name">
+      <img :src="phase.image" class="w-50 img-fluid" :alt="phase.name">
     </p>
+    <h2>{{ phase.name }}</h2>
 </template>

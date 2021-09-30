@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import Logo from './components/Logo.vue'
 import Moon from './components/Moon.vue'
+import Clouds from './components/Clouds.vue'
 </script>
-<template>    
+<template>  
+  <Clouds />  
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
       <div>
