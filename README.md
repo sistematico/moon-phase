@@ -2,7 +2,7 @@
 
 ![Lua](https://raw.githubusercontent.com/sistematico/moon-phase/main/assets/img/moon.png "Lua")
 
-## Instalção
+## Instalação
 
 Em breve.
 
