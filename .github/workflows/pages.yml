@@ -1,4 +1,4 @@
-kname: Github Pages
+name: Github Pages
 
 on:
   push:
