@@ -44,14 +44,14 @@ const moonImage: [
   LastQuarter: string,
   WaningCrescent: string
 ] = [
-  "/img/fases/nova.svg",
-  "/img/fases/crescente.svg",
-  "/img/fases/quarto_crescente.svg",
-  "/img/fases/crescente_gibosa.svg",
-  "/img/fases/cheia.svg",
-  "/img/fases/minguante_gibosa.svg",
-  "/img/fases/quarto_minguante.svg",
-  "/img/fases/minguante.svg"
+  "./img/fases/nova.svg",
+  "./img/fases/crescente.svg",
+  "./img/fases/quarto_crescente.svg",
+  "./img/fases/crescente_gibosa.svg",
+  "./img/fases/cheia.svg",
+  "./img/fases/minguante_gibosa.svg",
+  "./img/fases/quarto_minguante.svg",
+  "./img/fases/minguante.svg"
 ]
 
 enum EMoonPhaseName {
